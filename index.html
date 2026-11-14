@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="author" content="Alishba Umar">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShopEase - Online Shopping</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="ann">Free delivery on orders over Rs. 5,000 &nbsp;&bull;&nbsp; Cash on delivery available &nbsp;&bull;&nbsp; Easy 7-day returns</div>
+<header class="top">
+  <button id="menuBtn" class="icon" aria-label="Open menu">&#9776;</button>
+  <a href="#home" class="logo">Shop<b>Ease</b></a>
+  <nav class="links">
+    <a href="#home">Home</a><a href="#products">Products</a><a href="#categories">Categories</a>
+    <a href="#about">About Us</a><a href="#contact">Contact Us</a>
+  </nav>
+  <input id="search" type="search" placeholder="Search products...">
+  <a href="#login" id="authLink" class="btn small">Login / Signup</a>
+  <a href="#wishlist" class="icon" title="Wishlist">&#9825;<span id="wCount" class="badge">0</span></a>
+  <a href="#cart" class="icon bounce" title="Cart">&#128722;<span id="cCount" class="badge">0</span></a>
+</header>
+
+<div id="overlay"></div>
+<aside id="drawer">
+  <div class="drawer-head"><b>Menu</b><button id="closeBtn" class="icon">&times;</button></div>
+  <a href="#home">Home</a><a href="#profile">My Profile</a><a href="#orders">My Orders</a>
+  <a href="#wishlist">Wishlist</a><a href="#settings">Settings</a><a href="#" id="logout">Logout</a>
+</aside>
+
+<main>
+<section data-view="home">
+  <div class="slider" id="slider">
+    <div class="slide on s1"><div class="cap"><span class="pill">Mega Sale</span><h2>Premium laptops, unbeatable prices</h2><p>Study, work and create with confidence. Starting at Rs. 199,999.</p><a class="btn" href="#product-1">Shop laptops</a></div><div class="frame"><img src="images/p1-1.jpg" alt="Premium laptops, unbeatable prices"></div></div><div class="slide s2"><div class="cap"><span class="pill">New Season</span><h2>Step into the new season</h2><p>Sneakers and boots made for every day. Starting at Rs. 7,999.</p><a class="btn" href="#product-6">Shop shoes</a></div><div class="frame"><img src="images/p6-2.jpg" alt="Step into the new season"></div></div><div class="slide s3"><div class="cap"><span class="pill">Featured</span><h2>Sound that moves you</h2><p>Deep bass, 30-hour battery. Headphones from Rs. 12,999.</p><a class="btn" href="#product-2">Shop headphones</a></div><div class="frame"><img src="images/p2-1.jpg" alt="Sound that moves you"></div></div>
+    <button class="nav prev" id="prev">&#10094;</button><button class="nav next" id="next">&#10095;</button>
+    <div class="dots" id="dots"></div>
+  </div>
+  <div class="welcome"><h1>Welcome to ShopEase</h1><p>Everything you need, delivered to your door.</p><a href="#products" class="btn">Shop now</a></div>
+  <div class="marq"><div class="mq"><span>Free delivery over Rs. 5,000</span><span>Easy 7-day returns</span><span>Cash on delivery</span><span>Secure checkout</span><span>Friendly support</span><span>Free delivery over Rs. 5,000</span><span>Easy 7-day returns</span><span>Cash on delivery</span><span>Secure checkout</span><span>Friendly support</span></div></div>
+  <h2 class="sec">Shop by category</h2><div class="cats" id="homeCats"></div>
+  <h2 class="sec">Featured Products</h2><div class="grid" id="gFeatured"></div>
+  <div class="edit"><div class="ed-img"><img src="images/p5-1.jpg" alt="Winter jackets"></div><div class="ed-txt"><small>The Winter Edit</small><h2>Warm layers, made to last</h2><p>Puffer jackets and boots picked for cold mornings. Soft inside, sharp outside.</p><a class="btn" href="#products">Shop the edit</a></div></div>
+  <h2 class="sec">New Arrivals</h2><div class="grid" id="gNew"></div>
+  <h2 class="sec">Best Sellers</h2><div class="grid" id="gBest"></div>
+  <div class="edit rev"><div class="ed-img"><img src="images/p12-1.jpg" alt="Home appliances"></div><div class="ed-txt"><small>Home Essentials</small><h2>Make the kitchen work harder</h2><p>Air fryers, coffee makers and coolers that save time and keep your home comfortable.</p><a class="btn" href="#products">Shop appliances</a></div></div>
+  <h2 class="sec">Special Offers</h2><div class="grid" id="gOffer"></div>
+  <div class="news"><div><h2>Get 10% off your first order</h2><p>Join our newsletter for new arrivals and offers.</p></div><form id="newsForm" novalidate><input id="nEmail" type="email" placeholder="Your email address"><button class="btn alt">Subscribe</button></form></div>
+</section>
+
+<section data-view="categories">
+  <h1 class="sec">Categories</h1><div class="cats" id="cats"></div>
+</section>
+
+<section data-view="products">
+  <h1 class="sec">Products</h1>
+  <div class="shop">
+    <aside class="sidebar">
+      <h3>Categories</h3><div id="fCat"></div>
+      <h3>Max price: Rs. <span id="pv">200,000</span></h3><input type="range" id="fPrice" min="1000" max="200000" step="1000" value="200000">
+      <h3>Brand</h3><div id="fBrand"></div>
+      <h3>Rating</h3>
+      <select id="fRate"><option value="0">All ratings</option><option value="4">4&#9733; & up</option><option value="4.5">4.5&#9733; & up</option></select>
+      <button class="btn small" id="reset">Reset filters</button>
+    </aside>
+    <div><p id="count" class="muted"></p><div class="grid" id="gAll"></div></div>
+  </div>
+</section>
+
+<section data-view="detail"><div id="detail"></div></section>
+
+<section data-view="cart">
+  <h1 class="sec">Shopping Cart</h1><div id="cartBox"></div>
+</section>
+
+<section data-view="checkout"><h1 class="sec">Checkout</h1>
+<form id="coForm" class="co" novalidate>
+<div class="co-main">
+<fieldset><legend>Contact</legend>
+<label>Full name<input id="coName" autocomplete="name"></label>
+<label>Mobile number<input id="coPhone" placeholder="03XX XXXXXXX" inputmode="tel" autocomplete="tel"></label>
+<label class="full">Email<input id="coEmail" type="email" autocomplete="email"></label></fieldset>
+<fieldset><legend>Delivery address</legend>
+<label class="full">Street address<input id="coAddr" placeholder="House no, street, area" autocomplete="street-address"></label>
+<label>City<input id="coCity" autocomplete="address-level2"></label>
+<label>Province<select id="coProv"><option value="">Select province</option><option>Punjab</option><option>Sindh</option><option>Khyber Pakhtunkhwa</option><option>Balochistan</option><option>Islamabad Capital Territory</option><option>Gilgit-Baltistan</option><option>Azad Kashmir</option></select></label>
+<label>Postal code<input id="coZip" inputmode="numeric" maxlength="5" placeholder="44000"></label>
+<label class="full">Order notes (optional)<textarea id="coNote" rows="2" placeholder="Landmark, delivery timing..."></textarea></label></fieldset>
+<fieldset><legend>Payment method</legend>
+<label class="pay on"><input type="radio" name="pay" value="cod" checked><b>Cash on delivery</b><small>Pay in cash when your order arrives.</small></label>
+<label class="pay"><input type="radio" name="pay" value="card"><b>Credit / debit card</b><small>Visa or Mastercard</small></label>
+<div class="pp" id="ppCard" hidden>
+<label class="full">Card number<input id="cc" inputmode="numeric" placeholder="1234 5678 9012 3456" autocomplete="cc-number"></label>
+<label class="full">Name on card<input id="cName" autocomplete="cc-name"></label>
+<label>Expiry (MM/YY)<input id="exp" inputmode="numeric" placeholder="MM/YY" maxlength="5" autocomplete="cc-exp"></label>
+<label>Security code<input id="cvv" inputmode="numeric" maxlength="4" placeholder="CVV" type="password" autocomplete="cc-csc"></label></div>
+<label class="pay"><input type="radio" name="pay" value="wallet"><b>Mobile wallet</b><small>JazzCash or Easypaisa</small></label>
+<div class="pp" id="ppWallet" hidden>
+<label>Wallet<select id="wType"><option>JazzCash</option><option>Easypaisa</option></select></label>
+<label>Wallet mobile number<input id="wNum" inputmode="tel" placeholder="03XX XXXXXXX"></label></div></fieldset>
+<p class="err" id="coErr"></p>
+</div>
+<aside class="co-sum"><h3>Order summary</h3><div id="coItems"></div>
+<div class="srow"><span>Subtotal</span><span id="sSub"></span></div>
+<div class="srow"><span>Delivery</span><span id="sShip"></span></div>
+<div class="srow tot"><b>Total</b><b id="sTot"></b></div>
+<button class="btn" id="coBtn">Place order</button>
+<p class="muted">Free delivery on orders over Rs. 5,000. Otherwise Rs. 250.</p></aside>
+</form></section>
+<section data-view="success"><div id="okBox" class="ok-box"></div></section>
+<section data-view="wishlist"><h1 class="sec">Wishlist</h1><div class="grid" id="gWish"></div></section>
+
+<section data-view="about" class="about">
+  <div class="ab-hero"><small>About ShopEase</small><h1>Everyday shopping, made simple.</h1><p>We bring electronics, fashion, shoes, accessories and home appliances together in one easy place, with clear prices and honest descriptions.</p></div>
+  <div class="ab-split"><div class="ab-img"><img src="images/p9-1.jpg" alt="Handbag"><img src="images/p6-2.jpg" alt="Sneakers"></div>
+  <div class="ab-txt"><h2>Our story</h2><p>ShopEase started with a simple idea: buying online should feel easy and trustworthy. We choose products we would use ourselves, show them clearly, and price them fairly.</p><p>From a first laptop to a new kitchen gadget, we want every order to arrive on time and exactly as described. If something is not right, we make it right.</p><a class="btn" href="#products">Start shopping</a></div></div>
+  <h2 class="sec">What we stand for</h2>
+  <div class="vals"><div class="val"><h3>Honest quality</h3><p>Every product is checked before it is listed, and photos show the real thing.</p></div><div class="val"><h3>Fair prices</h3><p>Clear pricing with no hidden charges at checkout.</p></div><div class="val"><h3>Real support</h3><p>A friendly team that answers your questions and fixes problems quickly.</p></div></div>
+  <div class="ab-cta"><h2>Questions? We are happy to help.</h2><a class="btn alt" href="#contact">Contact us</a></div>
+</section>
+
+<section data-view="contact" class="page"><h1 class="sec">Contact Us</h1>
+  <form id="contactForm" class="form" novalidate>
+    <label>Name<input id="cName"></label><label>Email<input id="cEmail" type="email"></label>
+    <label>Message<textarea id="cMsg" rows="4"></textarea></label>
+    <p class="err" id="cErr"></p><button class="btn">Send message</button>
+  </form></section>
+
+<section data-view="login" class="page"><h1 class="sec" id="authTitle">Login</h1>
+  <div class="tabs"><button class="tab on" data-mode="login">Login</button><button class="tab" data-mode="signup">Signup</button></div>
+  <form id="authForm" class="form" novalidate>
+    <label id="nameRow" hidden>Full name<input id="aName"></label>
+    <label>Email<input id="aEmail" type="email"></label>
+    <label>Password<input id="aPass" type="password"></label>
+    <label id="confRow" hidden>Confirm password<input id="aConf" type="password"></label>
+    <p class="err" id="aErr"></p><button class="btn" id="aBtn">Login</button>
+  </form></section>
+
+<section data-view="info" class="page"><h1 class="sec" id="infoTitle"></h1><div id="infoBody"></div></section>
+</main>
+
+<footer>
+  <div><h4>About Us</h4><p>ShopEase - quality products at fair prices.</p></div>
+  <div><h4>Contact</h4><p>Riphah International University<br>Islamabad, Pakistan<br>hafizaalishba.umar@gmail.com</p></div>
+  <div><h4>Quick Links</h4><a href="#home">Home</a><a href="#products">Products</a><a href="#cart">Cart</a><a href="#contact">Contact</a></div>
+  <div><h4>Follow Us</h4><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a><a href="https://x.com" target="_blank" rel="noopener">X / Twitter</a></div>
+<p class="copy">&copy; 2026 ShopEase. All rights reserved. &nbsp;|&nbsp; This website is designed by <b>Alishba Umar</b>.</p></footer>
+<div id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
